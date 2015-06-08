@@ -21,7 +21,7 @@ object Util {
     (1L to (Math.sqrt(n)).toLong).filter(n % _ == 0).toList
   }  
   
-  def factorial(n : Long): Long = (1L to n).product
+  def factorial(n : Long): Long = if (n == 0) 1 else (1L to n).product
   
   def factBigInt(n: BigInt) = {
     def factHelper(n: BigInt, acc: BigInt): BigInt = {
@@ -30,5 +30,7 @@ object Util {
     }
     factHelper(n, 1)
   } 
+  
+  def getCurrentDirectory = new java.io.File( "." ).getCanonicalPath
   
 }
